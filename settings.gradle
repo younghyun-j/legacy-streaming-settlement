@@ -1,1 +1,6 @@
 rootProject.name = 'settlement'
+
+include 'streaming-service'
+include 'statistic-service'
+include 'scheduler-server'
+include 'batch-server'

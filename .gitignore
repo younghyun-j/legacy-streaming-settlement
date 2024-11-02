@@ -18,6 +18,7 @@ bin/
 !**/src/test/**/bin/
 
 ### IntelliJ IDEA ###
+.env
 .idea
 *.iws
 *.iml
@@ -35,3 +36,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Secrets
+**/src/main/resources/*.yml
+mysql
+
+# Querydls generate file ignore
+/src/main/generated
