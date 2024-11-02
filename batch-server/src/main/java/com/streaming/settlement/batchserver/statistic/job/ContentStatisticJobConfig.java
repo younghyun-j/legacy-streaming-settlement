@@ -2,7 +2,6 @@ package com.streaming.settlement.batchserver.statistic.job;
 
 import com.streaming.settlement.batchserver.statistic.chunk.CustomStatisticItemProcessor;
 import com.streaming.settlement.batchserver.statistic.chunk.CustomStatisticItemReader;
-import com.streaming.settlement.batchserver.statistic.chunk.CustomStatisticItemWriter;
 import com.streaming.settlement.batchserver.statistic.domain.CumulativeContentStatistic;
 import com.streaming.settlement.batchserver.statistic.domain.DailyContentStatistic;
 import com.streaming.settlement.batchserver.statistic.dto.CumulativeAndDailyStatisticDto;
