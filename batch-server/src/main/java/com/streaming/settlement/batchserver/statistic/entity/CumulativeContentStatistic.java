@@ -1,4 +1,4 @@
-package com.streaming.settlement.batchserver.statistic.domain;
+package com.streaming.settlement.batchserver.statistic.entity;
 
 import com.streaming.settlement.batchserver.global.entity.BaseEntity;
 import jakarta.persistence.*;

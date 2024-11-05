@@ -1,4 +1,4 @@
-package com.streaming.settlement.streamingservice.advertisement.domain;
+package com.streaming.settlement.streamingservice.advertisement.entity;
 
 import com.streaming.settlement.streamingservice.global.entity.BaseEntity;
 import jakarta.persistence.*;

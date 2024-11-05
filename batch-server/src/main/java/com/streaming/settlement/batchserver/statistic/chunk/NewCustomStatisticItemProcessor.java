@@ -1,8 +1,8 @@
 package com.streaming.settlement.batchserver.statistic.chunk;
 
 import com.streaming.settlement.batchserver.global.util.CreateDateJobParameter;
-import com.streaming.settlement.batchserver.statistic.domain.AdvertisementRevenueRange;
-import com.streaming.settlement.batchserver.statistic.domain.ContentRevenueRange;
+import com.streaming.settlement.batchserver.statistic.entity.AdvertisementRevenueRange;
+import com.streaming.settlement.batchserver.statistic.entity.ContentRevenueRange;
 import com.streaming.settlement.batchserver.statistic.dto.*;
 import com.streaming.settlement.batchserver.statistic.repository.UserAdStreamingLogRepository;
 import com.streaming.settlement.batchserver.statistic.repository.UserContentStreamingLogQueryDSLRepository;

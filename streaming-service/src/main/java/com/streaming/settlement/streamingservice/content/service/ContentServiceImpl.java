@@ -1,6 +1,6 @@
 package com.streaming.settlement.streamingservice.content.service;
 
-import com.streaming.settlement.streamingservice.content.domain.Content;
+import com.streaming.settlement.streamingservice.content.entity.Content;
 import com.streaming.settlement.streamingservice.content.repository.ContentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

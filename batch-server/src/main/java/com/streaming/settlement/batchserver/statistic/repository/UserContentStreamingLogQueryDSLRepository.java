@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 
-import static com.streaming.settlement.batchserver.statistic.domain.QUserContentStreamingLog.userContentStreamingLog;
+import static com.streaming.settlement.batchserver.statistic.entity.QUserContentStreamingLog.userContentStreamingLog;
 
 
 @Repository

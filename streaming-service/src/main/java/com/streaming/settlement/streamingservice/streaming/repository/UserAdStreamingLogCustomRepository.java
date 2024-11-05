@@ -1,6 +1,6 @@
 package com.streaming.settlement.streamingservice.streaming.repository;
 
-import com.streaming.settlement.streamingservice.streaming.domain.UserAdvertisementStreamingLog;
+import com.streaming.settlement.streamingservice.streaming.entity.UserAdvertisementStreamingLog;
 
 import java.util.List;
 

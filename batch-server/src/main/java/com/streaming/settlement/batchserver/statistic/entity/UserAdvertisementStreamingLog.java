@@ -1,4 +1,4 @@
-package com.streaming.settlement.batchserver.statistic.domain;
+package com.streaming.settlement.batchserver.statistic.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

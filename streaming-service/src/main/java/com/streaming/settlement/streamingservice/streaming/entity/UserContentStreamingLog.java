@@ -1,4 +1,4 @@
-package com.streaming.settlement.streamingservice.streaming.domain;
+package com.streaming.settlement.streamingservice.streaming.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

@@ -1,6 +1,6 @@
 package com.streaming.settlement.streamingservice.streaming.dto.response;
 
-import com.streaming.settlement.streamingservice.content.domain.Content;
+import com.streaming.settlement.streamingservice.content.entity.Content;
 
 import java.time.LocalDate;
 

@@ -1,12 +1,10 @@
 package com.streaming.settlement.streamingservice.streaming.dto.request;
 
-import com.streaming.settlement.streamingservice.streaming.domain.UserAdvertisementStreamingLog;
-import com.streaming.settlement.streamingservice.streaming.domain.UserContentStreamingLog;
+import com.streaming.settlement.streamingservice.streaming.entity.UserAdvertisementStreamingLog;
+import com.streaming.settlement.streamingservice.streaming.entity.UserContentStreamingLog;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 public record UserStreamingReportReq(

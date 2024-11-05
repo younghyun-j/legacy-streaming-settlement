@@ -1,6 +1,6 @@
-package com.streaming.settlement.streamingservice.content.domain;
+package com.streaming.settlement.streamingservice.content.entity;
 
-import com.streaming.settlement.streamingservice.advertisement.domain.Advertisement;
+import com.streaming.settlement.streamingservice.advertisement.entity.Advertisement;
 import com.streaming.settlement.streamingservice.global.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;

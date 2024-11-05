@@ -1,4 +1,4 @@
-package com.streaming.settlement.batchserver.statistic.domain;
+package com.streaming.settlement.batchserver.statistic.entity;
 
 public enum ContentRevenueRange {
 

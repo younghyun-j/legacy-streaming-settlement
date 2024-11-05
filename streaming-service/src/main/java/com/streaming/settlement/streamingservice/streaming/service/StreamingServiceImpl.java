@@ -1,10 +1,10 @@
 package com.streaming.settlement.streamingservice.streaming.service;
 
 
-import com.streaming.settlement.streamingservice.content.domain.Content;
+import com.streaming.settlement.streamingservice.content.entity.Content;
 import com.streaming.settlement.streamingservice.content.service.ContentService;
-import com.streaming.settlement.streamingservice.streaming.domain.UserAdvertisementStreamingLog;
-import com.streaming.settlement.streamingservice.streaming.domain.UserContentStreamingLog;
+import com.streaming.settlement.streamingservice.streaming.entity.UserAdvertisementStreamingLog;
+import com.streaming.settlement.streamingservice.streaming.entity.UserContentStreamingLog;
 import com.streaming.settlement.streamingservice.streaming.dto.response.StreamingContentRes;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

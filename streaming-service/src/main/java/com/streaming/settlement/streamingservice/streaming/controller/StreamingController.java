@@ -7,8 +7,8 @@ import com.streaming.settlement.streamingservice.global.redis.service.DailyViewe
 import com.streaming.settlement.streamingservice.global.redis.service.ViewAbusingCacheService;
 import com.streaming.settlement.streamingservice.global.redis.service.ViewCountCacheService;
 import com.streaming.settlement.streamingservice.global.util.IpUtil;
-import com.streaming.settlement.streamingservice.streaming.domain.UserAdvertisementStreamingLog;
-import com.streaming.settlement.streamingservice.streaming.domain.UserContentStreamingLog;
+import com.streaming.settlement.streamingservice.streaming.entity.UserAdvertisementStreamingLog;
+import com.streaming.settlement.streamingservice.streaming.entity.UserContentStreamingLog;
 import com.streaming.settlement.streamingservice.streaming.dto.request.UserStreamingReportReq;
 import com.streaming.settlement.streamingservice.streaming.dto.response.StreamingContentRes;
 import com.streaming.settlement.streamingservice.streaming.service.StreamingService;

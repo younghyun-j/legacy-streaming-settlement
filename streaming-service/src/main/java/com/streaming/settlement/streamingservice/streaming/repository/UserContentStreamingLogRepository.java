@@ -1,6 +1,6 @@
 package com.streaming.settlement.streamingservice.streaming.repository;
 
-import com.streaming.settlement.streamingservice.streaming.domain.UserContentStreamingLog;
+import com.streaming.settlement.streamingservice.streaming.entity.UserContentStreamingLog;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

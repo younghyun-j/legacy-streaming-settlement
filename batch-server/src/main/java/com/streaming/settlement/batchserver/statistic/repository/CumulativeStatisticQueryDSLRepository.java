@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static com.streaming.settlement.batchserver.statistic.domain.QCumulativeContentStatistic.cumulativeContentStatistic;
+import static com.streaming.settlement.batchserver.statistic.entity.QCumulativeContentStatistic.cumulativeContentStatistic;
 
 @Repository
 @RequiredArgsConstructor

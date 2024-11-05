@@ -1,7 +1,7 @@
 package com.streaming.settlement.batchserver.statistic.repository;
 
 
-import com.streaming.settlement.batchserver.statistic.domain.UserAdvertisementStreamingLog;
+import com.streaming.settlement.batchserver.statistic.entity.UserAdvertisementStreamingLog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
