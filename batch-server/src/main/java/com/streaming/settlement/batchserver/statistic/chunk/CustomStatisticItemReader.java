@@ -43,6 +43,9 @@ public class CustomStatisticItemReader implements ItemStreamReader<CumulativeSta
                         .stream()
                         .map(Long::parseLong)
                         .toList();
+        for (Long id : contentIds) {
+            log.info("id = {}", id);
+        }
     }
 
     @Override
@@ -89,7 +92,7 @@ public class CustomStatisticItemReader implements ItemStreamReader<CumulativeSta
     }
 
     private static String generateDailyViewedContentKey() {
-        return DAILY_VIEWED_CONTENT_KEY + LocalDate.now().minusDays(2L);
+        return DAILY_VIEWED_CONTENT_KEY + LocalDate.now().minusDays(1L);
     }
 
 }

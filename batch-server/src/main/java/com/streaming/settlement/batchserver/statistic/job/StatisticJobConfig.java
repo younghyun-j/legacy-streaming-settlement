@@ -33,10 +33,12 @@ import java.util.stream.Collectors;
 @Slf4j
 @Configuration
 @RequiredArgsConstructor
-public class ContentStatisticJobConfig {
+public class StatisticJobConfig {
 
     @Value("${spring.batch.chunk.size}")
     private int CHUNK_SIZE;
+    private final String STATISTICS_JOB_NAME = "statisticJob";
+    private final String STATISTICS_STEP_NAME = "statisticStep";
 
     private final EntityManagerFactory entityManagerFactory;
     private final CustomStatisticItemReader customStatisticItemReader;
@@ -44,7 +46,7 @@ public class ContentStatisticJobConfig {
 
     @Bean
     public Job statisticJob(JobRepository jobRepository, Step statisticStep) {
-        return new JobBuilder("statisticJob", jobRepository)
+        return new JobBuilder(STATISTICS_JOB_NAME, jobRepository)
                 .start(statisticStep)
                 .build();
     }
@@ -58,7 +60,7 @@ public class ContentStatisticJobConfig {
     @JobScope
     @Bean
     public Step statisticStep(JobRepository jobRepository, PlatformTransactionManager tx) {
-        return new StepBuilder("statisticStep", jobRepository)
+        return new StepBuilder(STATISTICS_STEP_NAME, jobRepository)
                 .<CumulativeStatisticDto, CumulativeAndDailyStatisticDto>chunk(CHUNK_SIZE, tx)
                 .reader(customStatisticItemReader)
                 .processor(customStatisticItemProcessor)
