@@ -38,6 +38,7 @@ out/
 .vscode/
 
 # Secrets
+**/src/main/resources/*.yml
 mysql
 
 # Querydls generate file ignore
