@@ -3,6 +3,7 @@ package com.streaming.settlement.batchserver.statistic.domain;
 import com.streaming.settlement.batchserver.global.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -32,6 +33,7 @@ public class CumulativeContentStatistic extends BaseEntity {
     @Column(nullable = false)
     private Long totalPlaybackTime;
 
+    @Builder
     public CumulativeContentStatistic(Long id, Long contentId, Long totalContentViews, Long totalContentRevenue, Long totalAdvertisementViews, Long totalAdvertisementRevenue, Long totalPlaybackTime) {
         this.id = id;
         this.contentId = contentId;

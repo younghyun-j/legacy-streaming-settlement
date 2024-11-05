@@ -3,6 +3,7 @@ package com.streaming.settlement.batchserver.statistic.domain;
 import com.streaming.settlement.batchserver.global.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -19,7 +20,7 @@ public class DailyContentStatistic extends BaseEntity {
     private CumulativeContentStatistic cumulativeContentStatistic;
 
     @Column(nullable = false)
-    private Long totalViews;
+    private Long totalContentViews;
 
     @Column(nullable = false)
     private Long totalContentRevenue;
@@ -33,9 +34,10 @@ public class DailyContentStatistic extends BaseEntity {
     @Column(nullable = false)
     private Long totalPlaybackTime;
 
-    public DailyContentStatistic(CumulativeContentStatistic cumulativeContentStatistic, Long totalViews, Long totalContentRevenue, Long totalAdvertisementViews, Long totalAdvertisementRevenue, Long totalPlaybackTime) {
+    @Builder
+    public DailyContentStatistic(CumulativeContentStatistic cumulativeContentStatistic, Long totalContentViews, Long totalContentRevenue, Long totalAdvertisementViews, Long totalAdvertisementRevenue, Long totalPlaybackTime) {
         this.cumulativeContentStatistic = cumulativeContentStatistic;
-        this.totalViews = totalViews;
+        this.totalContentViews = totalContentViews;
         this.totalContentRevenue = totalContentRevenue;
         this.totalAdvertisementViews = totalAdvertisementViews;
         this.totalAdvertisementRevenue = totalAdvertisementRevenue;

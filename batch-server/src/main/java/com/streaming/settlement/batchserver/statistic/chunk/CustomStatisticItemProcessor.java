@@ -1,5 +1,6 @@
 package com.streaming.settlement.batchserver.statistic.chunk;
 
+import com.streaming.settlement.batchserver.global.util.CreateDateJobParameter;
 import com.streaming.settlement.batchserver.statistic.domain.AdvertisementRevenueRange;
 import com.streaming.settlement.batchserver.statistic.domain.ContentRevenueRange;
 import com.streaming.settlement.batchserver.statistic.domain.CumulativeContentStatistic;
@@ -7,9 +8,7 @@ import com.streaming.settlement.batchserver.statistic.domain.DailyContentStatist
 import com.streaming.settlement.batchserver.statistic.dto.CumulativeAndDailyStatisticDto;
 import com.streaming.settlement.batchserver.statistic.dto.CumulativeStatisticDto;
 import com.streaming.settlement.batchserver.statistic.dto.DailyContentAggregationDto;
-import com.streaming.settlement.batchserver.statistic.dto.DailyStatisticDto;
 import com.streaming.settlement.batchserver.statistic.repository.UserAdStreamingLogRepository;
-import com.streaming.settlement.batchserver.global.util.CreateDateJobParameter;
 import com.streaming.settlement.batchserver.statistic.repository.UserContentStreamingLogQueryDSLRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -48,27 +47,26 @@ public class CustomStatisticItemProcessor implements ItemProcessor<CumulativeSta
         long dailyContentRevenue = totalContentRevenue - cumulativeStatisticDto.totalContentRevenue();
         long dailyAdRevenue = totalAdvertisementRevenue - cumulativeStatisticDto.totalAdvertisementRevenue();
 
-        return createCumulativeAndDailyStatisticsDto(cumulativeStatisticDto, dailyContentViews, dailyContentRevenue, dailyAdViews, dailyAdRevenue, dailyContentTotalPlaybackTime, totalContentViews, totalContentRevenue, totalAdvertisementViews, totalAdvertisementRevenue, totalContentPlaybackTime);
-    }
-
-    private CumulativeAndDailyStatisticDto createCumulativeAndDailyStatisticsDto(CumulativeStatisticDto cumulativeStatisticDto, long dailyContentViews, long dailyContentRevenue, long dailyAdViews, long dailyAdRevenue, long dailyContentTotalPlaybackTime, long totalContentViews, long totalContentRevenue, long totalAdvertisementViews, long totalAdvertisementRevenue, long totalContentPlaybackTime) {
-        CumulativeContentStatistic updateCumulativeContentStatistic = new CumulativeContentStatistic(
-                cumulativeStatisticDto.id(),
-                cumulativeStatisticDto.contentId(),
-                cumulativeStatisticDto.totalContentViews(),
-                cumulativeStatisticDto.totalContentRevenue(),
-                cumulativeStatisticDto.totalAdvertisementViews(),
-                cumulativeStatisticDto.totalAdvertisementRevenue(),
-                cumulativeStatisticDto.totalPlaybackTime());
-        DailyContentStatistic dailyContentStatistic = new DailyContentStatistic(
-                updateCumulativeContentStatistic,
-                dailyContentViews,
-                dailyAdViews,
-                dailyContentRevenue,
-                dailyAdRevenue,
-                dailyContentTotalPlaybackTime);
+        CumulativeContentStatistic updateCumulativeContentStatistic = CumulativeContentStatistic.builder()
+                .id(cumulativeStatisticDto.id())
+                .contentId(cumulativeStatisticDto.contentId())
+                .totalContentViews(totalContentViews)
+                .totalContentRevenue(totalContentRevenue)
+                .totalAdvertisementViews(totalAdvertisementViews)
+                .totalAdvertisementRevenue(totalAdvertisementRevenue)
+                .totalPlaybackTime(totalContentPlaybackTime)
+                .build();
+        DailyContentStatistic dailyContentStatistic = DailyContentStatistic.builder()
+                .cumulativeContentStatistic(updateCumulativeContentStatistic)
+                .totalContentViews(dailyContentViews)
+                .totalContentRevenue(dailyContentRevenue)
+                .totalAdvertisementViews(dailyAdViews)
+                .totalAdvertisementRevenue(dailyAdRevenue)
+                .totalPlaybackTime(dailyContentTotalPlaybackTime)
+                .build();
 
         return new CumulativeAndDailyStatisticDto(updateCumulativeContentStatistic, dailyContentStatistic);
     }
+
 }
 
