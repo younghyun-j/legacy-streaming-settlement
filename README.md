@@ -37,7 +37,7 @@
 ## 기술 스택
 
 - **Language** : ![Java](https://img.shields.io/badge/Java17-%23ED8B00.svg?style=square&logo=openjdk&logoColor=white) <br>
-- **Framework** : <img src = "https://img.shields.io/badge/Springboot 3.3.5-6DB33F?&logo=springboot&logoColor=white"> <img src = "https://img.shields.io/badge/Spring Batch 5.1.2 -6DB33F?&logo=Spring&logoColor=white"> ![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?style=square&logo=Spring&logoColor=white) <br>
+- **Framework** : <img src = "https://img.shields.io/badge/Springboot 3.3.5-6DB33F?&logo=springboot&logoColor=white"> <img src = "https://img.shields.io/badge/Spring Batch 5 -6DB33F?&logo=Spring&logoColor=white"> ![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?style=square&logo=Spring&logoColor=white) <br>
 - **Build** : ![Gradle](https://img.shields.io/badge/Gradle%208-02303A.svg?style=square&logo=Gradle&logoColor=white)
 - **Database** : <img src = "https://img.shields.io/badge/MySQL 8-4479A1?&logo=MySQL&logoColor=white"> <img src = "https://img.shields.io/badge/Redis-FF4438?&logo=redis&logoColor=white">
 - **DevOps** :<img src = "https://img.shields.io/badge/Docker-2496ED?&logo=docker&logoColor=white">
@@ -58,10 +58,6 @@
 
 - Redis TTL 설정으로 어뷰징 판단 데이터 관리
 - Redisson 분산 락 적용으로 동시성 문제 해결
-
-[**스트리밍 조회수 개별 업데이트 시, 데이터베이스 부하 문제**](https://github.com/younghyun-j/streaming-settlement)
-
-- Redis에 조회수 캐싱 후 주기적 Bulk Insert 처리로 데이터베이스 부하 최소화
 
 [**스트리밍 시청 종료 로그 처리 최적화**](https://github.com/younghyun-j/streaming-settlement)
 
