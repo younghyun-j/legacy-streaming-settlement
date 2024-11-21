@@ -44,8 +44,6 @@
 - **IDE** : <img src = "https://img.shields.io/badge/Intellij Idea-000000?&logo=intellijidea&logoColor=white">
 - **Version Control** : <img src = "https://img.shields.io/badge/Git-F05032?&logo=git&logoColor=white"> <img src = "https://img.shields.io/badge/Github-181717?&logo=github&logoColor=white">
 
-## 시스템 아키텍처
-
 ## 트러블 슈팅
 
 [**스트리밍 정산 및 통계 배치 단계별 최적화**](https://github.com/younghyun-j/streaming-settlement)
@@ -65,3 +63,4 @@
 - @Async 어노테이션을 사용한 비동기 처리를 통해 클라이언트 응답 지연 최소화
 
 ## ERD
+![image](https://github.com/user-attachments/assets/b3f89bbd-0269-4899-a2de-b60343a127fc)
