@@ -63,4 +63,7 @@
 - @Async 어노테이션을 사용한 비동기 처리를 통해 클라이언트 응답 지연 최소화
 
 ## ERD
-![image](https://github.com/user-attachments/assets/b3f89bbd-0269-4899-a2de-b60343a127fc)
+![image](https://github.com/user-attachments/assets/4a84142a-018d-4c36-b97a-6312cd640b08)
+
+
+
