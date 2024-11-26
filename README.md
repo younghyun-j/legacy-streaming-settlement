@@ -78,7 +78,7 @@
 ## ⚖️ 기술적 의사결정
 
 - [**스트리밍 어뷰징 동시성 처리에 Redisson을 선택한 이유**](https://github.com/younghyun-j/streaming-settlement/wiki/%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-%EC%96%B4%EB%B7%B0%EC%A7%95-%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%B2%98%EB%A6%AC%EC%97%90-Redisson%EC%9D%84-%EC%84%A0%ED%83%9D%ED%95%9C-%EC%9D%B4%EC%9C%A0) <br>
-- [**Redis 캐싱을 통한 성능 최적화**](https://github.com/younghyun-j/streaming-settlement/wiki/Redis-%EC%BA%90%EC%8B%B1%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94) <br>
+- [**스트리밍 어뷰징 판단을 위한 Redis 활용**](https://github.com/younghyun-j/streaming-settlement/wiki/%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-%EC%96%B4%EB%B7%B0%EC%A7%95-%ED%8C%90%EB%8B%A8%EC%9D%84-%EC%9C%84%ED%95%9C-Redis-%ED%99%9C%EC%9A%A9) <br>
 
 <br>
 
