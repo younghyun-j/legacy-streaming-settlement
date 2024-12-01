@@ -31,20 +31,33 @@
 ## 📌 프로젝트 주요 경험
 
 ### 1. 대용량 시청 기록 통계 및 정산 배치 성능 개선
-> Spring Batch 파티셔닝, DB 인덱싱, JDBC Batch Insert 단계별 개선을 통해 배치 처리 최적화
+> 일일 스트리밍 발생 영상 체크, DB 인덱싱, JDBC Batch Insert, Spring Batch Partitioning 단계별 개선을 통해 배치 성능 최적화
+
+- 1차 최적화 : 일일 스트리밍 발생 영상만 선별하여 배치 실행 **[2시간 58분 → 1시간 7분 소요]** <br>
+  - 유튜브 리서치에 따르면 일일 68% 영상은 조회수 미발생 전체 영상에서 조회수 미발생 영상 68% 제외 후 처리하여 약 62% 시간 단축
+    
+- 2차 최적화 : 영상 시청 로그 테이블에 복합 인덱스 적용하여 조회 성능 최적화 **[1시간 7분 → 2분 소요]** <br>
+  - 시청 일자, 영상 아이디 순으로 복합 인덱스 설정을 통해 시청 로그 1천 건 조회 기준, 복합 인덱스 설정으로 조회 속도 99% 향상
+
+- 3차 최적화 : JpaItemWriter에서 JDBC Bulk Insert로 전환하여 데이터 일괄 처리 **[2분 → 1분 2초 소요]** <br>
+  - JDBC Bulk Insert 도입으로 대용량 데이터 일괄 처리 및 쓰기 성능 91% 개선 (1,900ms → 255ms)
+
+- 4차 최적화 : Partitioning 도입으로 배치 병렬 처리 **[1분 2초 → 28초 개선]** <br>
+  - Single Thread -> Multi Thread (Grid Size : 4) 전환으로 배치 소요 시간 약 30% 추가 단축
+ 
 <br>
 
-✅ 소규모 데이터(5,000개 영상, 500건 조회수) 처리 **98% 성능 개선 (1시간 28분 → 8.6초)** <br>
+✅ 영상 1만 개, 시청 로그 1천만 건 기준 **98% 성능 개선 (2시간 58분 → 28초)** <br>
 
-| 단계 | 적용 사항 | 처리 시간 | 개선율 | 주요 개선 사항 |
-|------|-----------|--------|------|--------|
-| 최적화 전 | - | 1시간 28분 44초 | - | - |
-| 1차 최적화 | Partitioning | 1시간 27분 50초 | 1.1% | 병렬 처리를 통해 배치 속도 개선 |
-| 2차 최적화 | DB 인덱싱 | 9,431ms | 89.2% | 조회 쿼리 성능 개선 |
-| 3차 최적화 | JDBC Bulk Insert | 8,639ms | 8.4% | DB 쓰기 성능 최적화 |
+| 단계 | 처리 시간 |
+|------|-----------|
+| 최적화 전 | - |
+| 1차 최적화 | Partitioning |
+| 2차 최적화 | DB 인덱싱 |
+| 3차 최적화 | JDBC Bulk Insert |
 <br>
 
-✅ 대규모 데이터(70,000개 영상, 1억건 조회수) 처리 **35% 성능 개선 (3분 39초 → 2분 23초)** `[DB 인덱스 최적화 적용 후 테스트]` 
+✅ 영상 7만개, 시청 로그 1억건 추가 테스트 진행 **35% 성능 개선 (3분 39초 → 2분 23초)** `[DB 인덱스 최적화 적용 후 테스트]` 
 
 | 단계 | 적용 사항 | 처리 시간 | 개선율 | 주요 개선 사항 |
 |------|-----------|--------|------|--------|
@@ -77,16 +90,15 @@
 
 ## ⚖️ 기술적 의사결정
 
-- [**스트리밍 어뷰징 동시성 처리에 Redisson을 선택한 이유**](https://github.com/younghyun-j/streaming-settlement/wiki/%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-%EC%96%B4%EB%B7%B0%EC%A7%95-%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%B2%98%EB%A6%AC%EC%97%90-Redisson%EC%9D%84-%EC%84%A0%ED%83%9D%ED%95%9C-%EC%9D%B4%EC%9C%A0) <br>
+- [**스트리밍 발생 영상 체크 동시성 처리에 Redisson을 선택한 이유**](https://github.com/younghyun-j/streaming-settlement/wiki/%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-%EB%B0%9C%EC%83%9D-%EC%98%81%EC%83%81-%EC%B2%B4%ED%81%AC-%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%B2%98%EB%A6%AC%EC%97%90-Redisson%EC%9D%84-%EC%84%A0%ED%83%9D%ED%95%9C-%EC%9D%B4%EC%9C%A0) <br>
 - [**스트리밍 어뷰징 판단을 위한 Redis 활용**](https://github.com/younghyun-j/streaming-settlement/wiki/%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-%EC%96%B4%EB%B7%B0%EC%A7%95-%ED%8C%90%EB%8B%A8%EC%9D%84-%EC%9C%84%ED%95%9C-Redis-%ED%99%9C%EC%9A%A9) <br>
 
 <br>
 
 ## 🚀 트러블 슈팅
 
-- [**트랜잭션 전파로 인한 Undo Log 누적으로 배치 처리 시 성능 저하 문제**](https://github.com/younghyun-j/streaming-settlement/wiki/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EC%A0%84%ED%8C%8C%EB%A1%9C-%EC%9D%B8%ED%95%9C-Undo-Log-%EB%88%84%EC%A0%81%EC%9C%BC%EB%A1%9C-%EB%B0%B0%EC%B9%98-%EC%B2%98%EB%A6%AC-%EC%8B%9C-%EC%84%B1%EB%8A%A5-%EC%A0%80%ED%95%98-%EB%AC%B8%EC%A0%9C)
-- [**스트리밍 어뷰징 동시성 문제 해결**](https://github.com/younghyun-j/streaming-settlement/wiki/%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-%EC%96%B4%EB%B7%B0%EC%A7%95-%EB%8F%99%EC%8B%9C%EC%84%B1-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0)
-- [**대규모 일일 영상 시청 로그 집계 성능 최적화**](https://github.com/younghyun-j/streaming-settlement/wiki/%EB%8C%80%EA%B7%9C%EB%AA%A8-%EC%9D%BC%EC%9D%BC-%EC%98%81%EC%83%81-%EC%8B%9C%EC%B2%AD-%EB%A1%9C%EA%B7%B8-%EC%A7%91%EA%B3%84-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94)
+- [**InnoDB Undo Log 누적으로 인한 배치 처리 속도 저하 문제**](https://github.com/younghyun-j/streaming-settlement/wiki/InnoDB-Undo-Log-%EB%88%84%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%9D%B8%ED%95%9C-%EB%B0%B0%EC%B9%98-%EC%B2%98%EB%A6%AC-%EC%86%8D%EB%8F%84-%EC%A0%80%ED%95%98-%EB%AC%B8%EC%A0%9C)
+- [**대용량 일일 영상 시청 로그 집계 성능 최적화**](https://github.com/younghyun-j/streaming-settlement/wiki/%EB%8C%80%EA%B7%9C%EB%AA%A8-%EC%9D%BC%EC%9D%BC-%EC%98%81%EC%83%81-%EC%8B%9C%EC%B2%AD-%EB%A1%9C%EA%B7%B8-%EC%A7%91%EA%B3%84-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94)
 
 <br>
 
