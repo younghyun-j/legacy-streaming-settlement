@@ -31,7 +31,7 @@
 ## 📌 프로젝트 주요 경험
 
 ### 1. 대용량 시청 기록 통계 및 정산 배치 성능 개선
-> 일일 스트리밍 발생 영상 체크, DB 인덱싱, JDBC Batch Insert, Spring Batch Partitioning 단계별 개선을 통해 배치 성능 최적화
+> 일일 스트리밍 발생 영상 체크, DB 인덱싱, JDBC Bulk Insert, Spring Batch Partitioning 단계별 개선을 통해 배치 성능 최적화
 
 - 1차 최적화 : 일일 스트리밍 발생 영상만 선별하여 배치 실행 **[2시간 58분 → 1시간 7분 소요]** <br>
   - 유튜브 리서치에 따르면 일일 68% 영상은 조회수 미발생 전체 영상에서 조회수 미발생 영상 68% 제외 후 처리하여 약 62% 시간 단축
@@ -69,7 +69,7 @@
 | 4차 최적화 | 2분 23초 |
 <br>
 
-[**🔗 [상세내용] 스트리밍 정산 및 통계 배치 단계별 최적화**](https://github.com/younghyun-j/streaming-settlement/wiki/%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-%EC%A0%95%EC%82%B0-%EB%B0%8F-%ED%86%B5%EA%B3%84-%EB%B0%B0%EC%B9%98-%EB%8B%A8%EA%B3%84%EB%B3%84-%EC%B5%9C%EC%A0%81%ED%99%94)
+[**🔗 [상세내용] 스트리밍 통계·정산 배치 단계별 최적화**](https://github.com/younghyun-j/streaming-settlement/wiki/%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-%ED%86%B5%EA%B3%84%C2%B7%EC%A0%95%EC%82%B0-%EB%B0%B0%EC%B9%98-%EB%8B%A8%EA%B3%84%EB%B3%84-%EC%B5%9C%EC%A0%81%ED%99%94)
 
 <br>
 
@@ -98,13 +98,6 @@
 
 <br>
 
-## 🚀 트러블 슈팅
-
-- [**InnoDB Undo Log 누적으로 인한 배치 처리 속도 저하 문제**](https://github.com/younghyun-j/streaming-settlement/wiki/InnoDB-Undo-Log-%EB%88%84%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%9D%B8%ED%95%9C-%EB%B0%B0%EC%B9%98-%EC%B2%98%EB%A6%AC-%EC%86%8D%EB%8F%84-%EC%A0%80%ED%95%98-%EB%AC%B8%EC%A0%9C)
-- [**대용량 일일 영상 시청 로그 집계 성능 최적화**](https://github.com/younghyun-j/streaming-settlement/wiki/%EB%8C%80%EA%B7%9C%EB%AA%A8-%EC%9D%BC%EC%9D%BC-%EC%98%81%EC%83%81-%EC%8B%9C%EC%B2%AD-%EB%A1%9C%EA%B7%B8-%EC%A7%91%EA%B3%84-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94)
-
-<br>
-
 ## 🛠️ 기술 스택
 
 - **Language** : ![Java](https://img.shields.io/badge/Java17-%23ED8B00.svg?style=square&logo=openjdk&logoColor=white) <br>
@@ -117,7 +110,8 @@
 <br>
 
 ## 📄 ERD
-![image](https://github.com/user-attachments/assets/3d357bf3-9b7e-42eb-82a2-1a4a244f3776)
+![image](https://github.com/user-attachments/assets/3fe4168d-63fe-4076-9c57-660f2c0b6019)
+
 
 
 
