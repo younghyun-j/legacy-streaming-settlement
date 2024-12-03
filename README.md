@@ -110,7 +110,8 @@
 <br>
 
 ## 📄 ERD
-![image](https://github.com/user-attachments/assets/3fe4168d-63fe-4076-9c57-660f2c0b6019)
+![image](https://github.com/user-attachments/assets/6d36a014-7f49-407a-9ccb-957d691729eb)
+
 
 
 
